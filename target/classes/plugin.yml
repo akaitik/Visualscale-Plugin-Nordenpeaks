@@ -1,0 +1,58 @@
+name: VisualScalePlugin
+version: '2.0.0'
+main: com.example.visualscale.VisualScalePlugin
+api-version: '1.20'
+authors:
+  - Akai120
+description: >
+  Gestiona escalas visuales persistentes por jugador mediante un canal de plugin.
+  Requiere el mod cliente visualscale-client en Fabric 1.20.1.
+  No altera hitbox, colisiones ni física del servidor.
+
+# Sin dependencias de ProtocolLib — usa plugin messaging nativo de Bukkit
+depend: []
+
+commands:
+  scale:
+    description: Consulta o modifica la escala visual de un jugador.
+    usage: |
+      /scale                    — Ver tu escala actual
+      /scale <valor>            — Cambiar tu propia escala (0.0625–16.0)
+      /scale reset              — Restaurar tu escala a 1.0
+      /scale <jugador> <valor>  — (Admin) Cambiar escala de otro jugador
+      /scale <jugador> reset    — (Admin) Resetear escala de otro jugador
+      /scale list               — (Admin) Listar todas las escalas personalizadas
+    permission: visualscale.use
+    aliases:
+      - vscale
+      - playerscale
+
+  race:
+    description: Gestiona eventos de carrera con escalas aleatorias.
+    usage: |
+      /race start               — Iniciar evento; asigna escalas aleatorias
+      /race stop                — Finalizar evento; restaura escalas originales
+      /race status              — Ver escalas activas durante el evento
+      /race assign <jugador> <escala>  — Asignar escala específica en el evento
+    permission: visualscale.race
+
+permissions:
+  visualscale.use:
+    description: Permite usar /scale para modificar la propia escala.
+    default: false
+
+  visualscale.admin:
+    description: Permite modificar escalas de otros jugadores y ver el listado.
+    default: op
+
+  visualscale.race:
+    description: Permite gestionar eventos de carrera con /race.
+    default: op
+
+  visualscale.*:
+    description: Todos los permisos de VisualScalePlugin.
+    default: op
+    children:
+      visualscale.use: true
+      visualscale.admin: true
+      visualscale.race: true

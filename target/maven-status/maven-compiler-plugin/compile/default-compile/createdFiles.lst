@@ -1,0 +1,6 @@
+com\example\visualscale\commands\RaceCommand.class
+com\example\visualscale\listeners\PlayerEventListener.class
+com\example\visualscale\ScaleManager.class
+com\example\visualscale\network\ScalePacketSender.class
+com\example\visualscale\commands\ScaleCommand.class
+com\example\visualscale\VisualScalePlugin.class
