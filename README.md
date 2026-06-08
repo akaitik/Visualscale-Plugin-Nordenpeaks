@@ -1,4 +1,4 @@
-# VisualScalePlugin v1.1.0 — Código Fuente
+# VisualScalePlugin v — Código Fuente
 
 ## Requisitos
 
